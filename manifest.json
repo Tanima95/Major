@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Getting started example",
+  "description": "This extension shows an Image result for the current page",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+  "scripts": ["background.js"]
+  },
+
+
+
+
+  "content_scripts" : [
+  {
+  "run_at":"document_idle",
+  "matches": ["http://*/*","https://*/*","file://*"],
+  "js":["testing7.js"]
+  }
+  ]
+  
+}
