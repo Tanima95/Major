@@ -1,9 +1,14 @@
-
-var src_img = document.getElementsByTagName("img")[0] ;
-
+var length = document.images.length ; 
+//var src_img = document.getElementsByTagName("img")[0] ;
+var src_img = [];
 var quality = 70;
 
 var output_format = "jpg";
+
+for(i = 0;i<length;i++){
+      src_img = document.getElementsByTagName("img")[i] ;
+      document.getElementsByTagName("img")[i].src = compress(src_img,quality,output_format);
+}
 
 function compress(source_img_obj, quality, output_format){
              var mime_type = "image/jpeg";
@@ -19,8 +24,8 @@ function compress(source_img_obj, quality, output_format){
              var newImageData = cvs.toDataURL(mime_type, quality/100);
              var result_image_obj = new Image();
              result_image_obj.src = newImageData;
-             //return result_image_obj;
-             return document.body.appendChild(cvs);
+             return result_image_obj;
+             //return document.body.appendChild(cvs);
              //return document.getElementsByTagName("img")[0].src = result_image_obj;
 },
 
@@ -29,4 +34,4 @@ function compress(source_img_obj, quality, output_format){
 
 //document.body.appendChild(compress(src_img,quality,output_format));
 
-compress(src_img,quality,output_format);
+//compress(src_img,quality,output_format);
